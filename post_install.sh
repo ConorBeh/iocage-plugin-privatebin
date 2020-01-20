@@ -3,18 +3,17 @@
 # Enable services
 sysrc lighttpd_enable=YES
 sysrc php_fpm_enable=YES
+
 # Enable SSL with a self signed cert. It is mandatory for Chrome to work with PrivateBin
-#openssl genrsa -rand -genkey -out cert.key 2048
-#openssl req -new -x509 -days 365 -key cert.key -out cert.crt -sha256 -subj "/C=US/ST=PB/L=pbin/O=pbin/CN=pbin" -keyout www.example.com.key  -out www.example.com.cert
 cd /etc/ssl
-openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=PB/L=pbin/O=pbin/CN=pbin" -keyout privatebin.key -out privatebin.cer 2>/dev/null
+openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=US/ST=PB/L=pbin/O=pbin/CN=pbin" -keyout privatebin.key -out privatebin.cer 2>/dev/null
+
 # Wait for SSL to finish its thing
 sleep 10
+
+# Create a pem file for the web server to use
 cat privatebin.key privatebin.cer > privatebin.pem
-sleep 5
-#mv privatebin.pem /etc/ssl/privatebin.pem
-#rm privatebin.key 
-#rm privatebin.cert
+
 # Start services
 service lighttpd start 2>/dev/null
 service php-fpm start 2>/dev/null
