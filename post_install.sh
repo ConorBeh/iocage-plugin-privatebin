@@ -7,7 +7,7 @@ sysrc php_fpm_enable=YES
 cd /etc/ssl
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=US/ST=PB/L=pbin/O=pbin/CN=pbin" -keyout privatebin.key -out privatebin.cert
 # Wait for SSL to finish its thing
-#sleep 10
+sleep 10
 #cat privatebin.key privatebin.cert > privatebin.pem
 #sleep 5
 #mv privatebin.pem /etc/ssl/privatebin.pem
