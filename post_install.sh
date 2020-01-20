@@ -4,7 +4,7 @@
 sysrc lighttpd_enable=YES
 sysrc php_fpm_enable=YES
 
-# Enable SSL with a self signed cert. It is mandatory for Chrome to work with PrivateBin
+# Enable SSL with a self signed cert. Without SSL enabled, PrivateBin will not function when accessed via Google Chrome
 cd /etc/ssl
 openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=US/ST=PB/L=pbin/O=pbin/CN=pbin" -keyout privatebin.key -out privatebin.cer 2>/dev/null
 
