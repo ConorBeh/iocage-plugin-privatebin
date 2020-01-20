@@ -15,5 +15,5 @@ sleep 10
 #rm privatebin.key 
 #rm privatebin.cert
 # Start services
-service php-fpm start
-service lighttpd start
+service php-fpm start 2>/dev/null
+service lighttpd start 2>/dev/null
