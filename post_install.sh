@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Enable services
 sysrc lighttpd_enable=YES
 sysrc php_fpm_enable=YES
@@ -15,5 +16,6 @@ sleep 10
 #rm privatebin.key 
 #rm privatebin.cert
 # Start services
-service php-fpm start 2>/dev/null
 service lighttpd start 2>/dev/null
+service php-fpm start 2>/dev/null
+
