@@ -10,8 +10,8 @@ sleep 10
 cat privatebin.key privatebin.cert > privatebin.pem
 sleep 5
 mv privatebin.pem /etc/ssl/privatebin.pem
-rm privatebin.key 
-rm privatebin.cert
+#rm privatebin.key 
+#rm privatebin.cert
 # Start services
 service php-fpm start
 service lighttpd start
