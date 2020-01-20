@@ -18,3 +18,13 @@ cat privatebin.key privatebin.cer > privatebin.pem
 service lighttpd start 2>/dev/null
 service php-fpm start 2>/dev/null
 
+# Explain SSL cert
+echo "PrivateBin requires SSL to function correctly with Google Chrome."
+echo "A self-signed certificate was generated and installed for this purpose."
+echo "The self-signed certificate can be replaced with a proper version by the user."
+
+# Save the above warnings in PLUGIN_INFO
+echo "PrivateBin requires SSL to function correctly with Google Chrome." >> /root/PLUGIN_INFO
+echo "A self-signed certificate was generated and installed for this purpose." >> /root/PLUGIN_INFO
+echo "The self-signed certificate can be replaced with a proper version by the user." >> /root/PLUGIN_INFO
+
